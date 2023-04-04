@@ -141,6 +141,7 @@ class TopbarComponent extends Component {
       currentUserListingFetched,
       currentUserHasOrders,
       currentPage,
+      NewListingPage,
       notificationCount,
       viewport,
       intl,
@@ -150,6 +151,7 @@ class TopbarComponent extends Component {
       sendVerificationEmailInProgress,
       sendVerificationEmailError,
       showGenericError,
+
     } = this.props;
 
     const { mobilemenu, mobilesearch, address, origin, bounds } = parse(location.search, {
@@ -173,6 +175,7 @@ class TopbarComponent extends Component {
         onLogout={this.handleLogout}
         notificationCount={notificationCount}
         currentPage={currentPage}
+        NewListingPage={NewListingPage}
       />
     );
 
@@ -199,6 +202,7 @@ class TopbarComponent extends Component {
           currentUser={currentUser}
           onLogout={this.handleLogout}
           currentPage={currentPage}
+          NewListingPage={NewListingPage}
         />
         <div className={classNames(mobileRootClassName || css.container, mobileClassName)}>
           <Button
@@ -232,6 +236,7 @@ class TopbarComponent extends Component {
             currentUserListingFetched={currentUserListingFetched}
             currentUser={currentUser}
             currentPage={currentPage}
+            NewListingPage={NewListingPage}
             initialSearchFormValues={initialSearchFormValues}
             intl={intl}
             isAuthenticated={isAuthenticated}
@@ -297,6 +302,7 @@ TopbarComponent.defaultProps = {
   currentUser: null,
   currentUserHasOrders: null,
   currentPage: null,
+  NewListingPage:null,
   sendVerificationEmailError: null,
   authScopes: [],
 };
@@ -314,6 +320,7 @@ TopbarComponent.propTypes = {
   currentUserHasListings: bool.isRequired,
   currentUserHasOrders: bool,
   currentPage: string,
+  NewListingPage: string,
   notificationCount: number,
   onLogout: func.isRequired,
   onManageDisableScrolling: func.isRequired,

@@ -93,8 +93,8 @@ export class ProfileSettingsPageComponent extends Component {
       <Page className={css.root} title={title} scrollingDisabled={scrollingDisabled}>
         <LayoutSingleColumn>
           <LayoutWrapperTopbar>
-            <TopbarContainer currentPage="ProfileSettingsPage" />
-            <UserNav selectedPageName="ProfileSettingsPage" listing={currentUserListing} />
+            <TopbarContainer currentPage="ProfileSettingsPage" />            
+            <UserNav selectedPageName="ProfileSettingsPage" listing={currentUserListing} /> 
           </LayoutWrapperTopbar>
           <LayoutWrapperMain>
             <div className={css.content}>

@@ -107,12 +107,10 @@ export const filters = [
       // Note: label is not added through the translation files
       // to make filter customizations a bit easier.
       options: [
-        { key: 'ashtanga', label: 'Ashtanga' },
-        { key: 'hatha', label: 'Hatha' },
-        { key: 'kundalini', label: 'Kundalini' },
-        { key: 'restorative', label: 'Restorative' },
-        { key: 'vinyasa', label: 'Vinyasa' },
-        { key: 'yin', label: 'Yin' },
+        { key: 'jardin', label: 'Jardin' },
+        { key: 'bogeda', label: 'Bodega' },
+        { key: 'terraza', label: 'Terraza' },
+        { key: 'otro', label: 'Otro' },
       ],
     },
   },

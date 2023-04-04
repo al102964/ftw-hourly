@@ -26,6 +26,7 @@ import {
   resetPassword,
 } from './ContactDetailsPage.duck';
 import css from './ContactDetailsPage.module.css';
+//import ManageListingsPage from '../ManageListingsPage/ManageListingsPage';
 
 export const ContactDetailsPageComponent = props => {
   const {
@@ -82,7 +83,6 @@ export const ContactDetailsPageComponent = props => {
             desktopClassName={css.desktopTopbar}
             mobileClassName={css.mobileTopbar}
           />
-          <UserNav selectedPageName="ContactDetailsPage" listing={currentUserListing} />
         </LayoutWrapperTopbar>
         <LayoutWrapperAccountSettingsSideNav currentTab="ContactDetailsPage" />
         <LayoutWrapperMain>

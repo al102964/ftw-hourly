@@ -16,6 +16,8 @@ import {
   ListingLink,
   OwnListingLink,
 } from '../../components';
+
+const ManageListingsPage = import(/* webpackChunkName: "ListingPage" */ /* webpackPrefetch: true */ '../../containers/ManageListingsPage/ManageListingsPage');
 import { TopbarSearchForm } from '../../forms';
 
 import css from './TopbarDesktop.module.css';
@@ -83,6 +85,16 @@ const TopbarDesktop = props => {
         <Avatar className={css.avatar} user={currentUser} disableProfileLink />
       </MenuLabel>
       <MenuContent className={css.profileMenuContent}>
+        <MenuItem key=" ManageListingsPage">
+          <NamedLink
+            className={classNames(css.profileSettingsLink, currentPageClass('ManageListingsPage'))}
+            name="ManageListingsPage"
+          >
+            <span className={css.menuItemBorder} />
+            <FormattedMessage id="Ver lugares de fiesta propios" />
+          </NamedLink>
+        </MenuItem>
+        {/*
         <MenuItem key="EditListingPage">
           <OwnListingLink
             listing={currentUserListing}
@@ -98,7 +110,7 @@ const TopbarDesktop = props => {
               )}
             </div>
           </OwnListingLink>
-        </MenuItem>
+              </MenuItem>*/}
         <MenuItem key="ProfileSettingsPage">
           <NamedLink
             className={classNames(css.profileSettingsLink, currentPageClass('ProfileSettingsPage'))}
@@ -145,9 +157,9 @@ const TopbarDesktop = props => {
 
   const listingLink =
     authenticatedOnClientSide && currentUserListingFetched && currentUserListing ? (
-      <ListingLink
+      <NamedLink
         className={css.createListingLink}
-        listing={currentUserListing}
+        name="ManageListingsPage"
         children={
           <span className={css.createListing}>
             <FormattedMessage id="TopbarDesktop.viewListing" />
@@ -158,7 +170,7 @@ const TopbarDesktop = props => {
 
   const createListingLink =
     isAuthenticatedOrJustHydrated && !(currentUserListingFetched && !currentUserListing) ? null : (
-      <NamedLink className={css.createListingLink} name="NewListingPage">
+      <NamedLink className={css.createListingLink} name="ManageListingsPage">
         <span className={css.createListing}>
           <FormattedMessage id="TopbarDesktop.createListing" />
         </span>
