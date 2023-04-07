@@ -10,7 +10,8 @@ import { obfuscatedCoordinates } from '../../util/maps';
 import config from '../../config';
 
 import { hasParentWithClassName } from './SearchMap.helpers.js';
-import SearchMapWithMapbox, {
+
+/*import SearchMapWithMapbox, {
   LABEL_HANDLE,
   INFO_CARD_HANDLE,
   getMapBounds,
@@ -18,6 +19,16 @@ import SearchMapWithMapbox, {
   fitMapToBounds,
   isMapsLibLoaded,
 } from './SearchMapWithMapbox';
+*/
+import SearchMapWithGoogleMaps, {
+  LABEL_HANDLE,
+  INFO_CARD_HANDLE,
+  getMapBounds,
+  getMapCenter,
+  fitMapToBounds,
+  isMapsLibLoaded,
+} from './SearchMapWithGoogleMaps';
+
 import ReusableMapContainer from './ReusableMapContainer';
 import css from './SearchMap.module.css';
 
@@ -173,6 +184,26 @@ export class SearchMapComponent extends Component {
         onReattach={forceUpdateHandler}
         messages={messages}
       >
+        <SearchMapWithGoogleMaps
+       id={id}
+       className={classes}
+       bounds={bounds}
+       center={center}
+       location={location}
+       infoCardOpen={infoCardOpen}
+       listings={listings}
+       activeListingId={activeListingId}
+       mapComponentRefreshToken={this.state.mapReattachmentCount}
+       createURLToListing={this.createURLToListing}
+       onClick={this.onMapClicked}
+       onListingClicked={this.onListingClicked}
+       onListingInfoCardClicked={this.onListingInfoCardClicked}
+       onMapLoad={this.onMapLoadHandler}
+       onMapMoveEnd={onMapMoveEnd}
+       reusableMapHiddenHandle={REUSABLE_MAP_HIDDEN_HANDLE}
+       zoom={zoom}
+     />
+        {/*
         <SearchMapWithMapbox
           id={id}
           className={classes}
@@ -191,7 +222,7 @@ export class SearchMapComponent extends Component {
           onMapMoveEnd={onMapMoveEnd}
           reusableMapHiddenHandle={REUSABLE_MAP_HIDDEN_HANDLE}
           zoom={zoom}
-        />
+    />*/}
       </ReusableMapContainer>
     ) : (
       <div className={classes} />
